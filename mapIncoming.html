@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Remittance Flow</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!--Script for map-->
+
+
+  <!--
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Popularity'],
+          ['Germany', 200],
+          ['United States', 300],
+          ['Brazil', 400],
+          ['Canada', 500],
+          ['France', 600],
+          ['RU', 700]
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>-->
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+    function myFunction(){
+      //var inOrOut = document.getElementById("in-out-select");
+      var country = document.getElementById("country-select");
+
+      //var inOrOutText = inOrOut.options[inOrOut.selectedIndex].text;
+      var countryText = country.options[country.selectedIndex].text;
+
+      //var inOrOutValue = inOrOut.options[inOrOut.selectedIndex].value;
+      var countryValue = country.options[country.selectedIndex].value;
+
+      //alert("Displaying map of "+inOrOutText+" remittances for "+countryText);
+
+      //if (inOrOutValue=="incoming") {
+        //alert("1");
+        //select column where country is
+        if (countryValue=="afghanistan"){ var selectData = "SELECT A,B"}
+        else if(countryValue=="albania"){ var selectData = "SELECT A,C"}
+        else if(countryValue=="algeria"){ var selectData = "SELECT A,D"}
+        else if(countryValue=="americanSamoa"){ var selectData = "SELECT A,E"}
+        else if(countryValue=="andorra"){ var selectData = "SELECT A,F"}
+        else if(countryValue=="angola"){ var selectData = "SELECT A,G"}
+        else if(countryValue=="antiguaAndBarbuda"){ var selectData = "SELECT A,H"}
+        else if(countryValue=="argentina"){ var selectData = "SELECT A,I"}
+        else if(countryValue=="armenia"){ var selectData = "SELECT A,J"}
+        else if(countryValue=="aruba"){ var selectData = "SELECT A,K"}
+        else if(countryValue=="australia"){ var selectData = "SELECT A,L"}
+        else if(countryValue=="austria"){ var selectData = "SELECT A,M"}
+        else if(countryValue=="azerbaijan"){ var selectData = "SELECT A,N"}
+        else if(countryValue=="bahamas"){ var selectData = "SELECT A,O"}
+        else if(countryValue=="bahrain"){ var selectData = "SELECT A,P"}
+        else if(countryValue=="bangladesh"){ var selectData = "SELECT A,Q"}
+        else if(countryValue=="barbados"){ var selectData = "SELECT A,R"}
+        else if(countryValue=="belarus"){ var selectData = "SELECT A,S"}
+        else if(countryValue=="belgium"){ var selectData = "SELECT A,T"}
+        else if(countryValue=="belize"){ var selectData = "SELECT A,U"}
+        else if(countryValue=="benin"){ var selectData = "SELECT A,V"}
+        else if(countryValue=="bermuda"){ var selectData = "SELECT A,W"}
+        else if(countryValue=="bhutan"){ var selectData = "SELECT A,X"}
+        else if(countryValue=="bolivia"){ var selectData = "SELECT A,Y"}
+        else if(countryValue=="bosniaHerzegovina"){ var selectData = "SELECT A,Z"}
+        else if(countryValue=="botswana"){ var selectData = "SELECT A,AA"}
+        else if(countryValue=="brazil"){ var selectData = "SELECT A,AB"}
+        else if(countryValue=="brunei"){ var selectData = "SELECT A,AC"}
+        else if(countryValue=="bulgaria"){ var selectData = "SELECT A,AD"}
+        else if(countryValue=="burkinaFaso"){ var selectData = "SELECT A,AE"}
+        else if(countryValue=="burundi"){ var selectData = "SELECT A,AF"}
+        else if(countryValue=="caboVerde"){ var selectData = "SELECT A,AG"}
+        else if(countryValue=="cambodia"){ var selectData = "SELECT A,AH"}
+        else if(countryValue=="cameroon"){ var selectData = "SELECT A,AI"}
+        else if(countryValue=="canada"){ var selectData = "SELECT A,AJ"}
+        else if(countryValue=="caymanIslands"){ var selectData = "SELECT A,AK"}
+        else if(countryValue=="centralAfricanRepublic"){ var selectData = "SELECT A,AL"}
+        else if(countryValue=="chad"){ var selectData = "SELECT A,AM"}
+        else if(countryValue=="channelIslands"){ var selectData = "SELECT A,AN"}
+        else if(countryValue=="chile"){ var selectData = "SELECT A,AO"}
+        else if(countryValue=="china"){ var selectData = "SELECT A,AP"}
+        else if(countryValue=="colombia"){ var selectData = "SELECT A,AQ"}
+        else if(countryValue=="comoros"){ var selectData = "SELECT A,AR"}
+        else if(countryValue=="democraticRepublicOfTheCongo"){ var selectData = "SELECT A,AS"}
+        else if(countryValue=="republicOfTheCongo"){ var selectData = "SELECT A,AT"}
+        else if(countryValue=="costaRica"){ var selectData = "SELECT A,AU"}
+        else if(countryValue=="cotedIvoire"){ var selectData = "SELECT A,AV"}
+        else if(countryValue=="croatia"){ var selectData = "SELECT A,AW"}
+        else if(countryValue=="cuba"){ var selectData = "SELECT A,AX"}
+        else if(countryValue=="curacao"){ var selectData = "SELECT A,AY"}
+        else if(countryValue=="cyprus"){ var selectData = "SELECT A,AZ"}
+        else if(countryValue=="czechRepublic"){ var selectData = "SELECT A,BA"}
+        else if(countryValue=="denmark"){ var selectData = "SELECT A,BB"}
+        else if(countryValue=="djibouti"){ var selectData = "SELECT A,BC"}
+        else if(countryValue=="dominica"){ var selectData = "SELECT A,BD"}
+        else if(countryValue=="dominicanRepublic"){ var selectData = "SELECT A,BE"}
+        else if(countryValue=="ecuador"){ var selectData = "SELECT A,BF"}
+        else if(countryValue=="egypt"){ var selectData = "SELECT A,BG"}
+        else if(countryValue=="elSalvador"){ var selectData = "SELECT A,BH"}
+        else if(countryValue=="equatorialGuinea"){ var selectData = "SELECT A,BI"}
+        else if(countryValue=="eritrea"){ var selectData = "SELECT A,BJ"}
+        else if(countryValue=="estonia"){ var selectData = "SELECT A,BK"}
+        else if(countryValue=="ethiopia"){ var selectData = "SELECT A,BL"}
+        else if(countryValue=="faeroeIslands"){ var selectData = "SELECT A,BM"}
+        else if(countryValue=="fiji"){ var selectData = "SELECT A,BN"}
+        else if(countryValue=="finland"){ var selectData = "SELECT A,BO"}
+        else if(countryValue=="france"){ var selectData = "SELECT A,BP"}
+        else if(countryValue=="frenchPolynesia"){ var selectData = "SELECT A,BQ"}
+        else if(countryValue=="gabon"){ var selectData = "SELECT A,BR"}
+        else if(countryValue=="gambia"){ var selectData = "SELECT A,BS"}
+        else if(countryValue=="georgia"){ var selectData = "SELECT A,BT"}
+        else if(countryValue=="germany"){ var selectData = "SELECT A,BU"}
+        else if(countryValue=="ghana"){ var selectData = "SELECT A,BV"}
+        else if(countryValue=="greece"){ var selectData = "SELECT A,BW"}
+        else if(countryValue=="greenland"){ var selectData = "SELECT A,BX"}
+        else if(countryValue=="grenada"){ var selectData = "SELECT A,BY"}
+        else if(countryValue=="guam"){ var selectData = "SELECT A,BZ"}
+        else if(countryValue=="guatemala"){ var selectData = "SELECT A,CA"}
+        else if(countryValue=="guinea"){ var selectData = "SELECT A,CB"}
+        else if(countryValue=="guineaBissau"){ var selectData = "SELECT A,CC"}
+        else if(countryValue=="guyana"){ var selectData = "SELECT A,CD"}
+        else if(countryValue=="haiti"){ var selectData = "SELECT A,CE"}
+        else if(countryValue=="honduras"){ var selectData = "SELECT A,CF"}
+        else if(countryValue=="hongKong"){ var selectData = "SELECT A,CG"}
+        else if(countryValue=="hungary"){ var selectData = "SELECT A,CH"}
+        else if(countryValue=="iceland"){ var selectData = "SELECT A,CI"}
+        else if(countryValue=="india"){ var selectData = "SELECT A,CJ"}
+        else if(countryValue=="indonesia"){ var selectData = "SELECT A,CK"}
+        else if(countryValue=="iran"){ var selectData = "SELECT A,CL"}
+        else if(countryValue=="iraq"){ var selectData = "SELECT A,CM"}
+        else if(countryValue=="ireland"){ var selectData = "SELECT A,CN"}
+        else if(countryValue=="isleOfMan"){ var selectData = "SELECT A,CO"}
+        else if(countryValue=="israel"){ var selectData = "SELECT A,CP"}
+        else if(countryValue=="italy"){ var selectData = "SELECT A,CQ"}
+        else if(countryValue=="jamaica"){ var selectData = "SELECT A,CR"}
+        else if(countryValue=="japan"){ var selectData = "SELECT A,CS"}
+        else if(countryValue=="jordan"){ var selectData = "SELECT A,CT"}
+        else if(countryValue=="kazakhstan"){ var selectData = "SELECT A,CU"}
+        else if(countryValue=="kenya"){ var selectData = "SELECT A,CV"}
+        else if(countryValue=="kiribati"){ var selectData = "SELECT A,CW"}
+        else if(countryValue=="northKorea"){ var selectData = "SELECT A,CX"}
+        else if(countryValue=="southKorea"){ var selectData = "SELECT A,CY"}
+        else if(countryValue=="kosovo"){ var selectData = "SELECT A,CZ"}
+        else if(countryValue=="kuwait"){ var selectData = "SELECT A,DA"}
+        else if(countryValue=="kyrgyzstan"){ var selectData = "SELECT A,DB"}
+        else if(countryValue=="laos"){ var selectData = "SELECT A,DC"}
+        else if(countryValue=="latvia"){ var selectData = "SELECT A,DD"}
+        else if(countryValue=="lebanon"){ var selectData = "SELECT A,DE"}
+        else if(countryValue=="lesotho"){ var selectData = "SELECT A,DF"}
+        else if(countryValue=="liberia"){ var selectData = "SELECT A,DG"}
+        else if(countryValue=="libya"){ var selectData = "SELECT A,DH"}
+        else if(countryValue=="liechtenstein"){ var selectData = "SELECT A,DI"}
+        else if(countryValue=="lithuania"){ var selectData = "SELECT A,DJ"}
+        else if(countryValue=="luxembourg"){ var selectData = "SELECT A,DK"}
+        else if(countryValue=="macau"){ var selectData = "SELECT A,DL"}
+        else if(countryValue=="republicOfMacedonia"){ var selectData = "SELECT A,DM"}
+        else if(countryValue=="madagascar"){ var selectData = "SELECT A,DN"}
+        else if(countryValue=="malawi"){ var selectData = "SELECT A,DO"}
+        else if(countryValue=="malaysia"){ var selectData = "SELECT A,DP"}
+        else if(countryValue=="maldives"){ var selectData = "SELECT A,DQ"}
+        else if(countryValue=="mali"){ var selectData = "SELECT A,DR"}
+        else if(countryValue=="malta"){ var selectData = "SELECT A,DS"}
+        else if(countryValue=="marshallIslands"){ var selectData = "SELECT A,DT"}
+        else if(countryValue=="mauritania"){ var selectData = "SELECT A,DU"}
+        else if(countryValue=="mauritius"){ var selectData = "SELECT A,DV"}
+        else if(countryValue=="mexico"){ var selectData = "SELECT A,DW"}
+        else if(countryValue=="federatedStatesOfMicronesia"){ var selectData = "SELECT A,DX"}
+        else if(countryValue=="moldova"){ var selectData = "SELECT A,DY"}
+        else if(countryValue=="monaco"){ var selectData = "SELECT A,DZ"}
+        else if(countryValue=="mongolia"){ var selectData = "SELECT A,EA"}
+        else if(countryValue=="montenegro"){ var selectData = "SELECT A,EB"}
+        else if(countryValue=="morocco"){ var selectData = "SELECT A,EC"}
+        else if(countryValue=="mozambique"){ var selectData = "SELECT A,ED"}
+        else if(countryValue=="burmaMyanmar"){ var selectData = "SELECT A,EE"}
+        else if(countryValue=="namibia"){ var selectData = "SELECT A,EF"}
+        else if(countryValue=="nepal"){ var selectData = "SELECT A,EG"}
+        else if(countryValue=="netherlands"){ var selectData = "SELECT A,EH"}
+        else if(countryValue=="newCaledonia"){ var selectData = "SELECT A,EI"}
+        else if(countryValue=="newZealand"){ var selectData = "SELECT A,EJ"}
+        else if(countryValue=="nicaragua"){ var selectData = "SELECT A,EK"}
+        else if(countryValue=="niger"){ var selectData = "SELECT A,EL"}
+        else if(countryValue=="nigeria"){ var selectData = "SELECT A,EM"}
+        else if(countryValue=="northernMarianaIslands"){ var selectData = "SELECT A,EN"}
+        else if(countryValue=="norway"){ var selectData = "SELECT A,EO"}
+        else if(countryValue=="oman"){ var selectData = "SELECT A,EP"}
+        else if(countryValue=="pakistan"){ var selectData = "SELECT A,EQ"}
+        else if(countryValue=="palau"){ var selectData = "SELECT A,ER"}
+        else if(countryValue=="panama"){ var selectData = "SELECT A,ES"}
+        else if(countryValue=="papuaNewGuinea"){ var selectData = "SELECT A,ET"}
+        else if(countryValue=="paraguay"){ var selectData = "SELECT A,EU"}
+        else if(countryValue=="peru"){ var selectData = "SELECT A,EV"}
+        else if(countryValue=="philippines"){ var selectData = "SELECT A,EW"}
+        else if(countryValue=="poland"){ var selectData = "SELECT A,EX"}
+        else if(countryValue=="portugal"){ var selectData = "SELECT A,EY"}
+        else if(countryValue=="puertoRico"){ var selectData = "SELECT A,EZ"}
+        else if(countryValue=="qatar"){ var selectData = "SELECT A,FA"}
+        else if(countryValue=="romania"){ var selectData = "SELECT A,FB"}
+        else if(countryValue=="russia"){ var selectData = "SELECT A,FC"}
+        else if(countryValue=="rwanda"){ var selectData = "SELECT A,FD"}
+        else if(countryValue=="samoa"){ var selectData = "SELECT A,FE"}
+        else if(countryValue=="sanMarino"){ var selectData = "SELECT A,FF"}
+        else if(countryValue=="saoTomeAndPrincipe"){ var selectData = "SELECT A,FG"}
+        else if(countryValue=="saudiArabia"){ var selectData = "SELECT A,FH"}
+        else if(countryValue=="senegal"){ var selectData = "SELECT A,FI"}
+        else if(countryValue=="serbia"){ var selectData = "SELECT A,FJ"}
+        else if(countryValue=="seychelles"){ var selectData = "SELECT A,FK"}
+        else if(countryValue=="sierraLeone"){ var selectData = "SELECT A,FL"}
+        else if(countryValue=="singapore"){ var selectData = "SELECT A,FM"}
+        else if(countryValue=="sintMaartenDutchPart"){ var selectData = "SELECT A,FN"}
+        else if(countryValue=="slovakia"){ var selectData = "SELECT A,FO"}
+        else if(countryValue=="slovenia"){ var selectData = "SELECT A,FP"}
+        else if(countryValue=="solomonIslands"){ var selectData = "SELECT A,FQ"}
+        else if(countryValue=="somalia"){ var selectData = "SELECT A,FR"}
+        else if(countryValue=="southAfrica"){ var selectData = "SELECT A,FS"}
+        else if(countryValue=="southSudan"){ var selectData = "SELECT A,FT"}
+        else if(countryValue=="spain"){ var selectData = "SELECT A,FU"}
+        else if(countryValue=="sriLanka"){ var selectData = "SELECT A,FV"}
+        else if(countryValue=="stKittsAndNevis"){ var selectData = "SELECT A,FW"}
+        else if(countryValue=="stLucia"){ var selectData = "SELECT A,FX"}
+        else if(countryValue=="stMartinFrenchPart"){ var selectData = "SELECT A,FY"}
+        else if(countryValue=="stVincentAndTheGrenadines"){ var selectData = "SELECT A,FZ"}
+        else if(countryValue=="sudan"){ var selectData = "SELECT A,GA"}
+        else if(countryValue=="suriname"){ var selectData = "SELECT A,GB"}
+        else if(countryValue=="swaziland"){ var selectData = "SELECT A,GC"}
+        else if(countryValue=="sweden"){ var selectData = "SELECT A,GD"}
+        else if(countryValue=="switzerland"){ var selectData = "SELECT A,GE"}
+        else if(countryValue=="syria"){ var selectData = "SELECT A,GF"}
+        else if(countryValue=="tajikistan"){ var selectData = "SELECT A,GG"}
+        else if(countryValue=="tanzania"){ var selectData = "SELECT A,GH"}
+        else if(countryValue=="thailand"){ var selectData = "SELECT A,GI"}
+        else if(countryValue=="timorLeste"){ var selectData = "SELECT A,GJ"}
+        else if(countryValue=="togo"){ var selectData = "SELECT A,GK"}
+        else if(countryValue=="tonga"){ var selectData = "SELECT A,GL"}
+        else if(countryValue=="trinidadAndTobagov"){ var selectData = "SELECT A,GM"}
+        else if(countryValue=="tunisia"){ var selectData = "SELECT A,GN"}
+        else if(countryValue=="turkey"){ var selectData = "SELECT A,GO"}
+        else if(countryValue=="turkmenistan"){ var selectData = "SELECT A,GP"}
+        else if(countryValue=="turksAndCaicosIslands"){ var selectData = "SELECT A,GQ"}
+        else if(countryValue=="tuvalu"){ var selectData = "SELECT A,GR"}
+        else if(countryValue=="uganda"){ var selectData = "SELECT A,GS"}
+        else if(countryValue=="ukraine"){ var selectData = "SELECT A,GT"}
+        else if(countryValue=="unitedArabEmirates"){ var selectData = "SELECT A,GU"}
+        else if(countryValue=="unitedKingdom"){ var selectData = "SELECT A,GV"}
+        else if(countryValue=="unitedStates"){ var selectData = "SELECT A,GW"}
+        else if(countryValue=="uruguay"){ var selectData = "SELECT A,GX"}
+        else if(countryValue=="uzbekistan"){ var selectData = "SELECT A,GY"}
+        else if(countryValue=="vanuatu"){ var selectData = "SELECT A,GZ"}
+        else if(countryValue=="venezuela"){ var selectData = "SELECT A,HA"}
+        else if(countryValue=="vietnam"){ var selectData = "SELECT A,HB"}
+        else if(countryValue=="uSVirginIslands"){ var selectData = "SELECT A,HC"}
+        else if(countryValue=="westBankAndGaza"){ var selectData = "SELECT A,HD"}
+        else if(countryValue=="yemen"){ var selectData = "SELECT A,HE"}
+        else if(countryValue=="zambia"){ var selectData = "SELECT A,HF"}
+        else if(countryValue=="zimbabwe"){ var selectData = "SELECT A,HG"}
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawAllSheets);
+
+        function drawAllSheets() {
+          drawSheetName('bilateralremittancematrix2', selectData, responseHandler);
+        } //drawAllSheets
+
+        function drawSheetName(sheetName, query, responseHandler) {
+          var queryString = encodeURIComponent(query);
+          var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1K_zPKizmarTLtbd_9CH78w94Bf6x4fubOz13y6VUZ5s/gviz/tq?sheet=" + sheetName + "&headers=1&tq=" + queryString);
+          query.send(responseHandler);
+        } //drawSheetName
+
+        function responseHandler(response) {
+          var data = response.getDataTable();
+          data.sort({column: 1, desc: true});
+
+          // need to form data table with country joined
+          
+          var options = {};
+
+          var chart = new google.visualization.GeoChart(
+              document.getElementById("regions_div"));
+          chart.draw(data, options);
+        } //topMilitarySpendingResponseHandler
+
+
+      
+    };   
+  </script>
+  
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-text mx-3">REMITTANCE FLOW</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <span>Introduction</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+           
+      <div class="sidebar-heading">
+        TREND
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="trend1.html">
+          <span>Inflow</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="trend2.html">
+          <span>Outflow</span></a>
+      </li>
+      
+
+      <hr class="sidebar-divider">
+          
+      <div class="sidebar-heading">
+        MAP
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="mapOutgoing.html">
+        <span>Outgoing Remittance Map</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="mapIncoming.html">
+        <span>Incoming Remittance Map</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        FORECAST
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="forecast.html">
+        <span>Simple Forecast</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!--top bar removed-->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <br>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            
+            <h1 class="h3 mb-0 text-gray-800">Remittance flow map</h1>
+            
+            
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+
+            
+
+            <!-- Incoming/outgoing Card -->
+        <!--<div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="dropdown mb-4">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Incoming/Outgoing:</div>
+                      <form action="">
+                        <div class="form-group">
+                          <select class="form-control" id="in-out-select">
+                            <option value="incoming">Incoming</option>
+                            <option value="outgoing">Outgoing</option>                          
+                          </select>
+                        </div>
+                      </form>                     
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          -->
+
+            <!-- Country Card -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="dropdown mb-4">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Choose Country:</div>
+                      <form action="">
+                        <div class="form-group">
+                          <select class="form-control" id="country-select">
+                            <option value="afghanistan">Afghanistan</option>
+                            <option value="albania">Albania</option>
+                            <option value="algeria">Algeria</option>
+                            <option value="americanSamoa">American Samoa</option>
+                            <option value="andorra">Andorra</option>
+                            <option value="angola">Angola</option>
+                            <option value="antiguaAndBarbuda">Antigua and Barbuda</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="armenia">Armenia</option>
+                            <option value="aruba">Aruba</option>
+                            <option value="australia">Australia</option>
+                            <option value="austria">Austria</option>
+                            <option value="azerbaijan">Azerbaijan</option>
+                            <option value="bahamas">Bahamas</option>
+                            <option value="bahrain">Bahrain</option>
+                            <option value="bangladesh">Bangladesh</option>
+                            <option value="barbados">Barbados</option>
+                            <option value="belarus">Belarus</option>
+                            <option value="belgium">Belgium</option>
+                            <option value="belize">Belize</option>
+                            <option value="benin">Benin</option>
+                            <option value="bermuda">Bermuda</option>
+                            <option value="bhutan">Bhutan</option>
+                            <option value="bolivia">Bolivia</option>
+                            <option value="bosniaHerzegovina">Bosnia-Herzegovina</option>
+                            <option value="botswana">Botswana</option>
+                            <option value="brazil">Brazil</option>
+                            <option value="brunei">Brunei</option>
+                            <option value="bulgaria">Bulgaria</option>
+                            <option value="burkinaFaso">Burkina Faso</option>
+                            <option value="burmaMyanmar">Burma (Myanmar)</option>
+                            <option value="burundi">Burundi</option>
+                            <option value="cambodia">Cambodia</option>
+                            <option value="cameroon">Cameroon</option>
+                            <option value="canada">Canada</option>
+                            <option value="capeVerde">Cape Verde</option>
+                            <option value="caymanIslands">Cayman Islands</option>
+                            <option value="centralAfricanRepublic">Central African Republic</option>
+                            <option value="chad">Chad</option>
+                            <option value="channelIslands">Channel Islands</option>
+                            <option value="chile">Chile</option>
+                            <option value="china">China</option>
+                            <option value="colombia">Colombia</option>
+                            <option value="comoros">Comoros</option>
+                            <option value="costaRica">Costa Rica</option>
+                            <option value="croatia">Croatia</option>
+                            <option value="cuba">Cuba</option>
+                            <option value="curacao">Curacao</option>
+                            <option value="cyprus">Cyprus</option>
+                            <option value="czechRepublic">Czech Republic</option>
+                            <option value="democraticRepublicOfTheCongo">Democratic Republic of the Congo</option>
+                            <option value="denmark">Denmark</option>
+                            <option value="djibouti">Djibouti</option>
+                            <option value="dominica">Dominica</option>
+                            <option value="dominicanRepublic">Dominican Republic</option>
+                            <option value="ecuador">Ecuador</option>
+                            <option value="egypt">Egypt</option>
+                            <option value="elSalvador">El Salvador</option>
+                            <option value="equatorialGuinea">Equatorial Guinea</option>
+                            <option value="eritrea">Eritrea</option>
+                            <option value="estonia">Estonia</option>
+                            <option value="ethiopia">Ethiopia</option>
+                            <option value="faeroeIslands">Faeroe Islands</option>
+                            <option value="federatedStatesOfMicronesia">Federated States of Micronesia</option>
+                            <option value="fiji">Fiji</option>
+                            <option value="finland">Finland</option>
+                            <option value="france">France</option>
+                            <option value="frenchPolynesia">French Polynesia</option>
+                            <option value="gabon">Gabon</option>
+                            <option value="gambia">Gambia</option>
+                            <option value="georgia">Georgia</option>
+                            <option value="germany">Germany</option>
+                            <option value="ghana">Ghana</option>
+                            <option value="greece">Greece</option>
+                            <option value="greenland">Greenland</option>
+                            <option value="grenada">Grenada</option>
+                            <option value="guam">Guam</option>
+                            <option value="guatemala">Guatemala</option>
+                            <option value="guinea">Guinea</option>
+                            <option value="guineaBissau">Guinea-Bissau</option>
+                            <option value="guyana">Guyana</option>
+                            <option value="haiti">Haiti</option>
+                            <option value="honduras">Honduras</option>
+                            <option value="hongKong">Hong Kong</option>
+                            <option value="hungary">Hungary</option>
+                            <option value="iceland">Iceland</option>
+                            <option value="india">India*</option>
+                            <option value="indonesia">Indonesia</option>
+                            <option value="iran">Iran</option>
+                            <option value="iraq">Iraq</option>
+                            <option value="ireland">Ireland</option>
+                            <option value="isleOfMan">Isle of Man</option>
+                            <option value="israel">Israel*</option>
+                            <option value="italy">Italy</option>
+                            <option value="ivoryCoast">Ivory Coast</option>
+                            <option value="jamaica">Jamaica</option>
+                            <option value="japan">Japan</option>
+                            <option value="jordan">Jordan</option>
+                            <option value="kazakhstan">Kazakhstan</option>
+                            <option value="kenya">Kenya</option>
+                            <option value="kiribati">Kiribati</option>
+                            <option value="kosovo">Kosovo</option>
+                            <option value="kuwait">Kuwait</option>
+                            <option value="kyrgyzstan">Kyrgyzstan</option>
+                            <option value="laos">Laos</option>
+                            <option value="latvia">Latvia</option>
+                            <option value="lebanon">Lebanon*</option>
+                            <option value="lesotho">Lesotho</option>
+                            <option value="liberia">Liberia</option>
+                            <option value="libya">Libya</option>
+                            <option value="liechtenstein">Liechtenstein</option>
+                            <option value="lithuania">Lithuania</option>
+                            <option value="luxembourg">Luxembourg</option>
+                            <option value="macau">Macau</option>
+                            <option value="madagascar">Madagascar</option>
+                            <option value="malawi">Malawi</option>
+                            <option value="malaysia">Malaysia</option>
+                            <option value="maldives">Maldives</option>
+                            <option value="mali">Mali</option>
+                            <option value="malta">Malta</option>
+                            <option value="marshallIslands">Marshall Islands</option>
+                            <option value="mauritania">Mauritania</option>
+                            <option value="mauritius">Mauritius</option>
+                            <option value="mexico">Mexico</option>
+                            <option value="moldova">Moldova</option>
+                            <option value="monaco">Monaco</option>
+                            <option value="mongolia">Mongolia</option>
+                            <option value="montenegro">Montenegro</option>
+                            <option value="morocco">Morocco</option>
+                            <option value="mozambique">Mozambique</option>
+                            <option value="namibia">Namibia</option>
+                            <option value="nepal">Nepal</option>
+                            <option value="netherlands">Netherlands</option>
+                            <option value="newCaledonia">New Caledonia</option>
+                            <option value="newZealand">New Zealand</option>
+                            <option value="nicaragua">Nicaragua</option>
+                            <option value="niger">Niger</option>
+                            <option value="nigeria">Nigeria</option>
+                            <option value="northKorea">North Korea</option>
+                            <option value="northernMarianaIslands">Northern Mariana Islands</option>
+                            <option value="norway">Norway</option>
+                            <option value="oman">Oman</option>
+                            <option value="pakistan">Pakistan*</option>
+                            <option value="palau">Palau</option>
+                            <option value="palestinianTerritories">Palestinian territories</option>
+                            <option value="panama">Panama</option>
+                            <option value="papuaNewGuinea">Papua New Guinea</option>
+                            <option value="paraguay">Paraguay</option>
+                            <option value="peru">Peru</option>
+                            <option value="philippines">Philippines</option>
+                            <option value="poland">Poland</option>
+                            <option value="portugal">Portugal</option>
+                            <option value="puertoRico">Puerto Rico</option>
+                            <option value="qatar">Qatar</option>
+                            <option value="republicOfMacedonia">Republic of Macedonia</option>
+                            <option value="republicOfTheCongo">Republic of the Congo</option>
+                            <option value="romania">Romania</option>
+                            <option value="russia">Russia</option>
+                            <option value="rwanda">Rwanda</option>
+                            <option value="samoa">Samoa</option>
+                            <option value="sanMarino">San Marino</option>
+                            <option value="saoTomeAndPrincipe">Sao Tome and Principe</option>
+                            <option value="saudiArabia">Saudi Arabia</option>
+                            <option value="senegal">Senegal</option>
+                            <option value="serbia">Serbia</option>
+                            <option value="seychelles">Seychelles</option>
+                            <option value="sierraLeone">Sierra Leone</option>
+                            <option value="singapore">Singapore</option>
+                            <option value="sintMaartenDutchPart">Sint Maarten (Dutch part)</option>
+                            <option value="slovakia">Slovakia</option>
+                            <option value="slovenia">Slovenia</option>
+                            <option value="solomonIslands">Solomon Islands</option>
+                            <option value="somalia">Somalia</option>
+                            <option value="southAfrica">South Africa</option>
+                            <option value="southKorea">South Korea</option>
+                            <option value="southSudan">South Sudan</option>
+                            <option value="spain">Spain</option>
+                            <option value="sriLanka">Sri Lanka</option>
+                            <option value="stKittsAndNevis">St. Kitts and Nevis</option>
+                            <option value="stLucia">St. Lucia</option>
+                            <option value="stMartinFrenchPart">St. Martin (French part)</option>
+                            <option value="stVincentAndTheGrenadines">St. Vincent and the Grenadines</option>
+                            <option value="sudan">Sudan</option>
+                            <option value="suriname">Suriname</option>
+                            <option value="swaziland">Swaziland</option>
+                            <option value="sweden">Sweden</option>
+                            <option value="switzerland">Switzerland</option>
+                            <option value="syria">Syria</option>
+                            <option value="tajikistan">Tajikistan</option>
+                            <option value="tanzania">Tanzania</option>
+                            <option value="thailand">Thailand</option>
+                            <option value="timorLeste">Timor-Leste</option>
+                            <option value="togo">Togo</option>
+                            <option value="tonga">Tonga</option>
+                            <option value="trinidadAndTobago">Trinidad and Tobago</option>
+                            <option value="tunisia">Tunisia</option>
+                            <option value="turkey">Turkey</option>
+                            <option value="turkmenistan">Turkmenistan</option>
+                            <option value="turksAndCaicosIslands">Turks and Caicos Islands</option>
+                            <option value="tuvalu">Tuvalu</option>
+                            <option value="uSVirginIslands">U.S. Virgin Islands</option>
+                            <option value="uganda">Uganda</option>
+                            <option value="ukraine">Ukraine</option>
+                            <option value="unitedArabEmirates">United Arab Emirates</option>
+                            <option value="unitedKingdom">United Kingdom</option>
+                            <option value="unitedStates" selected="selected">United States</option>
+                            <option value="uruguay">Uruguay</option>
+                            <option value="uzbekistan">Uzbekistan</option>
+                            <option value="vanuatu">Vanuatu</option>
+                            <option value="venezuela">Venezuela</option>
+                            <option value="vietnam">Vietnam</option>
+                            <option value="yemen">Yemen</option>
+                            <option value="zambia">Zambia</option>
+                            <option value="zimbabwe">Zimbabwe</option>                         
+                          </select>
+                        </div>
+                      </form>                     
+                  </div>                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  
+                  <a href="#" class="btn btn-success btn-icon-split" onclick="myFunction()">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-sync"></i>
+                    </span>
+                    <span class="text">Refresh</span>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+                  
+
+            <!-- Earnings (Monthly) Card Example -->
+            
+
+            <!-- Earnings (Monthly) Card Example -->
+            
+
+            <!-- Pending Requests Card Example -->
+            
+          </div>
+
+          <!-- Content Row -->
+
+          
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-12 mb-4">
+              <!-- Abstract -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Incoming remittance flows worldwide in 2017 ($ millions)</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Data Vizualization Final Project :: Arshiful Islam Shadman</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
